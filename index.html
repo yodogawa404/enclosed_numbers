@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>囲まれた数字記号</title>
+
+    <style>
+        body{
+            text-align: center;
+        }
+        textarea{
+            resize: none;
+        }
+
+        #root{
+            display: flex;
+            justify-content: space-around;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>囲まれた数字記号</h1>
+        <p>
+            個人的に使うことが増えてきたのでメモ代わりに
+        </p>
+    </div>
+    <div id="root">
+        <div>
+            <span>角括弧</span>
+            <br>
+            <textarea id="squared_output" readonly cols="5" rows="20"></textarea><span></span>
+        </div>
+        
+        <div>
+            <span>丸括弧</span>
+            <br>
+            <textarea id="parenthesized_output" readonly cols="5" rows="20"></textarea>
+        </div>
+        
+        <div>
+            <span>丸数字</span>
+            <br>
+            <textarea id="circled_output" readonly cols="5" rows="20"></textarea>
+        </div>
+    </div>
+
+    <script>
+
+        function squared_number(){
+            let output_str=""
+
+            for(let i=1;i<=20;i++) {
+                output_str=output_str+"["+i+"]"
+                if(i !==20){
+                    output_str=output_str+"\n"
+                }
+            }
+
+            return output_str
+        }
+
+        function parenthesized_number(){
+            let output_str=""
+
+            for(let i=1;i<=20;i++){
+                output_str=output_str+"("+i+")"
+                if(i !== 20) {
+                    output_str=output_str+"\n"
+                }
+            }
+
+            return output_str
+        }
+
+        function circle_number(){
+            let output_str=""
+
+            let circled_array=["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳"]
+
+            for(let i=0;i<circled_array.length;i++){
+                output_str=output_str+circled_array[i]
+                if(i !== (circled_array.length-1)) {
+                    output_str=output_str+"\n"
+                }
+            }
+
+            return output_str
+        }
+
+        document.getElementById("squared_output").textContent=squared_number()
+        document.getElementById("parenthesized_output").textContent=parenthesized_number()
+        document.getElementById("circled_output").textContent=circle_number()
+    </script>
+</body>
+</html>
